@@ -1,10 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { MovieInterface } from 'src/models/model';
+import { MovieService } from './services/movie.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'frontend-developer-task-framework-agnostic';
+
+  movies$!: Observable<MovieInterface[]>;
+
+  constructor(private movieService: MovieService) {}
+
+  ngOnInit() {
+    this.movies$ = this.movieService.getMovies();
+  }
 }
