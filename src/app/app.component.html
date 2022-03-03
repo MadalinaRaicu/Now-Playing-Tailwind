@@ -7,5 +7,7 @@
           Now playing
         </span>
       </h1>
-      <app-movie-list [movies]="movies$ | async" [filters]="filters$ | async"></app-movie-list>
+      <ng-container *ngIf="(movies$ | async) as movies">
+        <app-movie-list  *ngIf="(filters$ | async) as filters" [movies]="movies" [filters]="filters"></app-movie-list>
+      </ng-container>
     </div>

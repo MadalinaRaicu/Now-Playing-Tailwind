@@ -6,27 +6,28 @@ import { Genre, Movie } from 'src/models/model';
   templateUrl: './movie-list.component.html',
 })
 export class MovieListComponent implements OnInit {
-  @Input() movies!: Movie[] | null;
+  @Input()
+  movies!: Movie[];
 
-  @Input() filters!: Genre[] | null;
+  @Input()
+  filters!: Genre[];
 
   filteredMovies: Movie[] = [];
 
+  selectedMovies: number = 0;
+
   ngOnInit(): void {
     this.filteredMovies = this.sortByPopularity(this.movies || []);
-  }
-
-  get selectedMovies() {
-    return this.filteredMovies?.length;
+    this.selectedMovies = this.filteredMovies.length;
   }
 
   private sortByPopularity(movies: Movie[]) {
     return movies.sort((n1, n2) =>
-      n1.popularity === n2.popularity
-        ? 0
-        : n1.popularity > n2.popularity
-        ? 1
-        : -1
+      n1.popularity !== n2.popularity
+        ? n1.popularity > n2.popularity
+          ? -1
+          : 1
+        : 0
     );
   }
 
@@ -38,5 +39,6 @@ export class MovieListComponent implements OnInit {
         movie.genre_ids.find((id) => selectedGenreIds.includes(id))
       );
     }
+    this.selectedMovies = this.filteredMovies.length;
   }
 }

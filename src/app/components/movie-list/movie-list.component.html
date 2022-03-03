@@ -3,7 +3,7 @@
           <p>Showing {{ selectedMovies }} movies</p>
           <app-filters [genres]="filters || []" (filterChanged)="onFiltersChanged($event)"></app-filters>
         </div>
-        <ng-container *ngIf="!!movies" class="movies">
+        <ng-container *ngIf="!!movies && !!filters" class="movies">
             <app-movie *ngFor="let movie of movies" class="movie" [movie]="movie"></app-movie>
         </ng-container>
       </div>
