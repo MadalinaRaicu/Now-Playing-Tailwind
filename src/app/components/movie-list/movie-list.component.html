@@ -4,6 +4,6 @@
           <app-filters [genres]="filters || []" (filterChanged)="onFiltersChanged($event)"></app-filters>
         </div>
         <ng-container *ngIf="!!movies && !!filters" class="movies">
-            <app-movie *ngFor="let movie of movies" class="movie" [movie]="movie"></app-movie>
+            <app-movie *ngFor="let movie of movies" class="movie" [movie]="movie" [genres]="filters"></app-movie>
         </ng-container>
       </div>
