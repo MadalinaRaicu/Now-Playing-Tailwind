@@ -5,9 +5,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MovieComponent } from './components/movie/movie.component';
+import { FiltersComponent } from './components/filters/filters.component';
+import { MovieListComponent } from './components/movie-list/movie-list.component';
 
 @NgModule({
-  declarations: [AppComponent, MovieComponent],
+  declarations: [
+    AppComponent,
+    MovieComponent,
+    FiltersComponent,
+    MovieListComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],

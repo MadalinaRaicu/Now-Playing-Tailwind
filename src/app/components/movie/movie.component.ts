@@ -1,10 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MovieInterface } from 'src/models/model';
 
 @Component({
-  selector: 'movie',
+  selector: 'app-movie',
   templateUrl: './movie.component.html',
-  styleUrls: ['./movie.component.scss'],
 })
 export class MovieComponent {
   @Input() movie!: MovieInterface;

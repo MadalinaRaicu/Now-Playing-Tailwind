@@ -7,11 +7,5 @@
           Now playing
         </span>
       </h1>
-      <div class="container">
-
-        <div class="filters">Showing 12 movies</div>
-        <div class="movies" *ngFor="let movie of movies$ | async">
-          <movie class="movie" [movie]="movie"></movie>
-        </div>
-      </div>
+      <app-movie-list [movies]="movies$ | async"></app-movie-list>
     </div>
