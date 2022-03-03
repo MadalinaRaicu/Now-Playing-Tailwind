@@ -1,11 +1,11 @@
-<div class="movie-content">
+<div class="movie-content card">
   <h2 class="movie-title"> {{ movie.title }}</h2>
   <img class="movie-image" [src]="poster(movie.poster_path)" [alt]="movie.title"/>
   <div class="movie-meta">
-    <p>
-      {{ movie.overview }}
+    <p><em>  {{ movie.overview }}</em>
+    
     </p>
-    <p>Rating: {{ movie.vote_average }}/10</p>
-    <p>Popularity: {{ movie.popularity }}</p>
+    <p><b>Rating:</b> {{ movie.vote_average }}/10</p>
+    <p><b>Popularity:</b> {{ movie.popularity }}</p>
   </div>
 </div>

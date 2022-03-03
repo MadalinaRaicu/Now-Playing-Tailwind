@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { MovieInterface } from 'src/models/model';
+import { Genre, Movie } from 'src/models/model';
 import { MovieService } from './services/movie.service';
 
 @Component({
@@ -11,11 +11,14 @@ import { MovieService } from './services/movie.service';
 export class AppComponent implements OnInit {
   title = 'frontend-developer-task-framework-agnostic';
 
-  movies$!: Observable<MovieInterface[]>;
+  movies$!: Observable<Movie[]>;
+
+  filters$!: Observable<Genre[]>;
 
   constructor(private movieService: MovieService) {}
 
   ngOnInit() {
     this.movies$ = this.movieService.getMovies();
+    this.filters$ = this.movieService.getGenres();
   }
 }

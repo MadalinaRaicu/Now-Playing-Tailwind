@@ -1,8 +1,9 @@
       <div class="container">
-        <div class="filters">Showing 12 movies</div>
-        <ng-container *ngIf="!!movies">
-          <div class="movies" *ngFor="let movie of movies">
-            <app-movie class="movie" [movie]="movie"></app-movie>
-          </div>
+        <div class="filters">       
+          <p>Showing {{ movies?.length }} movies</p>
+          <app-filters [genres]="filters || []"></app-filters>
+        </div>
+        <ng-container *ngIf="!!movies" class="movies">
+            <app-movie *ngFor="let movie of movies" class="movie" [movie]="movie"></app-movie>
         </ng-container>
       </div>

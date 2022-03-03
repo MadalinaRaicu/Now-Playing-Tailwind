@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, timeout } from 'rxjs';
-import { MovieInterface } from 'src/models/model';
+import { Genre, Movie } from 'src/models/model';
 
 @Injectable({
   providedIn: 'root',
@@ -9,9 +9,15 @@ import { MovieInterface } from 'src/models/model';
 export class MovieService {
   constructor(private http: HttpClient) {}
 
-  getMovies(): Observable<MovieInterface[]> {
+  getMovies(): Observable<Movie[]> {
     return this.http
-      .get<MovieInterface[]>('../../assets/movies.json')
+      .get<Movie[]>('../../assets/movies.json')
+      .pipe(timeout(13000));
+  }
+
+  getGenres(): Observable<Genre[]> {
+    return this.http
+      .get<Genre[]>('../../assets/genres.json')
       .pipe(timeout(13000));
   }
 }

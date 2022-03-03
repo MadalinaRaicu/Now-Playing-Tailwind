@@ -7,5 +7,5 @@
           Now playing
         </span>
       </h1>
-      <app-movie-list [movies]="movies$ | async"></app-movie-list>
+      <app-movie-list [movies]="movies$ | async" [filters]="filters$ | async"></app-movie-list>
     </div>

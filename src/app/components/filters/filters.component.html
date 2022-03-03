@@ -1,1 +1,7 @@
-<p>filters works!</p>
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <label formArrayName="genres" *ngFor="let genre of genresFormArray.controls; let i = index">
+    <input type="checkbox" [formControlName]="i">
+    {{genres[i].name}}
+  </label>
+  <button type="submit">Filter</button>
+</form>
