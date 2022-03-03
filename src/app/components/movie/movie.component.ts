@@ -14,9 +14,10 @@ export class MovieComponent {
   }
 
   genreNames(): string {
-    return this.movie.genre_ids
+    const list = this.movie.genre_ids
       .map((genreId) => this.genres.find((g) => g.id === genreId)?.name)
-      .filter((name) => name)
-      .join(', ');
+      .filter((name) => name);
+    const last = list.pop();
+    return list.length > 0 ? `${list.join(', ')} and ${last}` : `${last}`;
   }
 }
