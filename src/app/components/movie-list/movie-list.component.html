@@ -1,7 +1,7 @@
       <div class="container">
-        <div class="filters">       
-          <p>Showing {{ movies?.length }} movies</p>
-          <app-filters [genres]="filters || []"></app-filters>
+        <div  *ngIf="!!filters" class="filters">       
+          <p>Showing {{ selectedMovies }} movies</p>
+          <app-filters [genres]="filters || []" (filterChanged)="onFiltersChanged($event)"></app-filters>
         </div>
         <ng-container *ngIf="!!movies" class="movies">
             <app-movie *ngFor="let movie of movies" class="movie" [movie]="movie"></app-movie>

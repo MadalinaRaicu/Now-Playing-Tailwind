@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormArray, FormBuilder, FormControl } from '@angular/forms';
 import { Genre } from 'src/models/model';
 
@@ -9,6 +9,7 @@ import { Genre } from 'src/models/model';
 })
 export class FiltersComponent implements OnInit {
   @Input() genres!: Genre[];
+  @Output() filterChanged = new EventEmitter<number[]>();
 
   form: FormGroup;
 
@@ -23,7 +24,6 @@ export class FiltersComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.genres);
     this.addCheckboxes();
   }
 
@@ -37,6 +37,6 @@ export class FiltersComponent implements OnInit {
     const selectedGenreIds = this.form.value.genres
       .map((checked: any, i: number) => (checked ? this.genres[i].id : null))
       .filter((v: null) => v !== null);
-    console.log(selectedGenreIds);
+    this.filterChanged.emit(selectedGenreIds);
   }
 }

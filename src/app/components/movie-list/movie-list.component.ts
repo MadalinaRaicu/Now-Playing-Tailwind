@@ -10,8 +10,14 @@ export class MovieListComponent implements OnInit {
 
   @Input() filters!: Genre[] | null;
 
+  filteredMovies: Movie[] = [];
+
   ngOnInit(): void {
-    this.movies = this.sortByPopularity(this.movies || []);
+    this.filteredMovies = this.sortByPopularity(this.movies || []);
+  }
+
+  get selectedMovies() {
+    return this.filteredMovies?.length;
   }
 
   private sortByPopularity(movies: Movie[]) {
@@ -22,5 +28,15 @@ export class MovieListComponent implements OnInit {
         ? 1
         : -1
     );
+  }
+
+  onFiltersChanged(selectedGenreIds: number[]): void {
+    if (selectedGenreIds.length === 0) {
+      this.filteredMovies = this.movies || [];
+    } else {
+      this.filteredMovies = (this.movies || []).filter((movie) =>
+        movie.genre_ids.find((id) => selectedGenreIds.includes(id))
+      );
+    }
   }
 }
