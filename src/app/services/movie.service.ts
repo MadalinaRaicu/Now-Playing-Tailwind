@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, timeout } from 'rxjs';
-import { Genre, Movie } from 'src/models/model';
+import { Genre, Movie } from '../models/model';
 
 @Injectable({
   providedIn: 'root',

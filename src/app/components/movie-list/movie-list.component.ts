@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Genre, Movie } from 'src/models/model';
+import { Genre, Movie } from '../../models/model';
 
 @Component({
   selector: 'app-movie-list',
@@ -39,6 +39,13 @@ export class MovieListComponent implements OnInit {
         movie.genre_ids.find((id) => selectedGenreIds.includes(id))
       );
     }
+    this.selectedMovies = this.filteredMovies.length;
+  }
+
+  onRatingChanged(minRating: number) {
+    this.filteredMovies = (this.movies || []).filter(
+      (movie) => movie.vote_average > minRating
+    );
     this.selectedMovies = this.filteredMovies.length;
   }
 }
