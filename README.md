@@ -1,27 +1,43 @@
-# FrontendDeveloperTaskFrameworkAgnostic
+# Developer Task
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
+Below is a list of instructions we'd like you to complete.
 
-## Development server
+Please upload your code to a git repo we can access and send us the link when you're done!
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Be sure to write comments.
 
-## Code scaffolding
+We're most interested to see problem solving and your approach.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Keep it simple, keep it DRY, but don't over complicate or over engineer.
 
-## Build
+We've added some files and styles to give you a head start - but feel free to blaze your own trail if you prefer.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Feel free to add libraries if you deem it necessary.
 
-## Running unit tests
+Your time is precious. Please don't spend more than 1-2 hours on this. You don't need to complete all the steps - rather detail how you would approach those you didn't get to.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+This task doesn't specify any particular framework or libraries you should use. We use React with Typescript but feel free to use whatever you like including plain JavaScript.
 
-## Running end-to-end tests
+## Instructions:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. You'll find a index.html file in the public folder. We'd like you to render the HTML using the framework of your choice. Break up the HTML into multiple components. Don't go too far here - 2 or 3 is fine as there is no reusability requirement. Rather think about how you'd like it broken up if you were reviewing.
 
-## Further help
+2. Retrieve the data from the provided json files (in `./public`). We've added stub api code in `./api`.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+3. Order the listed movies by popularity (most popular first - `popularity` property).
+
+4. Show the movie poster image (use the `poster_path` property - eg: `https://image.tmdb.org/t/p/w500/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg`).
+
+5. List out the genres that are present the movie data set.
+
+6. Using the genre list added above, add a multiple genres filter using checkboxes. The user should have the ability to toggle movies depending on all of its assigned genres. For example if 'Action' and 'Drama' genres are selected, listed movies must have both 'Action' and 'Drama' genres.
+
+7. Implement genres names in movie card (same style as popularity/rating), comma separate and include `and` for last item if 2 or more - eg: `Genres: genreA, genreB and genreC` (an Oxford comma is totally allowed 😁).
+
+8. Add a _minimum_ rating (`vote_average` property) filter with a range between `0` and `10`, increments of `0.5` and an initial value of `3`. This must work with the genre filter.
+
+9. Add a filter reset button.
+
+## Candidate notes
+
+> _Please add details of next steps or any notes for the reviewer here._
