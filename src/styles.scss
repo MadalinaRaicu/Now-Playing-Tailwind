@@ -1,111 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* You can add global styles to this file, and also import other style files */
 body {
   font-family: "Roboto", Arial, sans-serif;
-  font-weight: 300;
-  line-height: 1.8;
-  margin: 0;
-  padding: 0;
-}
-
-h1,
-h2,
-p {
-  margin: 0;
-}
-
-img {
-  display: block;
-  width: 100%;
+  @apply text-base bg-gray-50 m-0 p-0;
 }
 
 h1 {
-  background-color: #f9f9f9;
-  font-size: 2rem;
-  padding: 1rem 0;
+  @apply text-4xl;
 }
 
 h2 {
-  font-size: 1.2rem;
-}
-
-.container {
-  display: grid;
-  grid-template-columns:
-    [full-start] clamp(1rem, 2vw, 3rem) [main-start] 1fr [main-end] clamp(
-      1rem,
-      2vw,
-      3rem
-    )
-    [full-end];
-}
-
-.container > * {
-  grid-column: main;
-}
-
-.container > .full {
-  grid-column: full;
-}
-
-.filters {
-  border-bottom: 1px solid #eee;
-  display: grid;
-  gap: 0.5rem;
-  padding-bottom: 1.5rem;
-}
-
-/* Perhaps a grid? */
-.genres-list {
-}
-
-.movies {
-  display: grid;
-  gap: 2rem;
-  margin: 0 auto;
-}
-
-.card {
-  /* Add shadows to create the "card" effect */
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  padding: 20px;
-  margin: auto;
-}
-
-/* On mouse-over, add a deeper shadow */
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
-
-
-.movie {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: minmax(3rem, 1fr) 2fr;
-}
-
-.movie-title {
-  font-size: 1.6rem;
-}
-
-.movie-image {
-  border-radius: 0.2rem;
-  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
-}
-
-.movie-content {
-  display: grid;
-  gap: 0.5rem;
-  grid-template-rows: auto 1fr auto;
-}
-
-.movie-meta {
-  align-content: start;
-  justify-content: start;
-  display: grid;
-  gap: 0.2rem;
-  font-size: 0.8rem;
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0 0 0;
+  @apply text-xl;
 }

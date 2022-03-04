@@ -1,9 +1,11 @@
-      <div class="container">
-        <div  *ngIf="!!filters" class="filters">       
-          <p>Showing {{ selectedMovies }} movies</p>
-          <app-filters [genres]="filters || []" (filterChanged)="onFiltersChanged($event)" (ratingChanged)="onRatingChanged($event)"></app-filters>
-        </div>
-        <ng-container *ngIf="!!movies && !!filters" class="movies">
-            <app-movie *ngFor="let movie of movies" class="movie" [movie]="movie" [genres]="filters"></app-movie>
-        </ng-container>
-      </div>
+<div class="px-2 grid grid-cols-12 gap-4">
+  <div  *ngIf="!!filters" class="col-span-4 sm:col-span-3 md:col-span-2 flex flex-col p-4 bg-white rounded-lg">       
+    <p class="font-semibold">Showing {{ selectedMovies }} movies</p>
+    <app-filters [genres]="filters || []" (filterChanged)="onFiltersChanged($event)" (ratingChanged)="onRatingChanged($event)"></app-filters>
+  </div>
+  <div class="col-span-8 sm:col-span-9 md:col-span-10 grid grid-cols-[repeat(auto-fill,_minmax(240px,_1fr))] gap-3">
+    <ng-container *ngIf="!!movies && !!filters">
+        <app-movie *ngFor="let movie of movies" [movie]="movie" [genres]="filters"></app-movie>
+    </ng-container>
+  </div>
+</div>

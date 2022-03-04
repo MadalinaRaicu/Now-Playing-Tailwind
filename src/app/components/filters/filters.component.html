@@ -1,10 +1,17 @@
-<label> Minimum Rating <b>{{minRating}}</b></label>
- <input type="range" min="0" max="10" step="0.5" [value]="minRating" #ref (change)="updateRating(ref.value)">
-
-<button (click)="clearFilters()">{{'Clear all filters' | titlecase}}</button>
-<form [formGroup]="form">
-  <label formArrayName="genres" *ngFor="let genre of genresFormArray.controls; let i = index">
-    <input type="checkbox" [formControlName]="i" (change)="updateFilters()">
-    {{genres[i].name}}
-  </label>
-</form>
+<div class="flex flex-col gap-4">
+  <span class="flex flex-col gap-1">
+    <label> Minimum Rating <b>{{minRating}}</b></label>
+    <input type="range" min="0" max="10" step="0.5" [value]="minRating" #ref (change)="updateRating(ref.value)">
+  </span>
+  
+  <button (click)="clearFilters()" class="bg-pink py-2 px-4 rounded-lg text-center text-white text-sm">
+    {{'Clear all filters' | titlecase}}
+  </button>
+  
+  <form [formGroup]="form" class="flex flex-col gap-1">
+    <label formArrayName="genres" *ngFor="let genre of genresFormArray.controls; let i = index" class="flex items-center gap-1">
+      <input type="checkbox" [formControlName]="i" (change)="updateFilters()">
+      {{genres[i].name}}
+    </label>
+  </form>
+</div>

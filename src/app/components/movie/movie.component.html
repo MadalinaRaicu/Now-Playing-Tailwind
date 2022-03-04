@@ -1,12 +1,19 @@
-<div class="movie-content card">
-  <h2 class="movie-title"> {{ movie.title }}</h2>
-  <img class="movie-image" [src]="poster(movie.poster_path)" [alt]="movie.title"/>
-  <div class="movie-meta">
-    <p><em>  {{ movie.overview }}</em>
-    
+<div class="h-full bg-white p-4 rounded-lg flex flex-col gap-2">
+  <h2 class="font-semibold"> {{ movie.title }}</h2>
+  <img class="rounded" [src]="poster(movie.poster_path)" [alt]="movie.title"/>
+  <div class="text-sm flex flex-col gap-1">
+    <p><em>  {{ movie.overview }}</em></p>
+    <p>
+      <span class="font-semibold">Rating:</span> 
+      {{ movie.vote_average }}/10
     </p>
-    <p><b>Rating:</b> {{ movie.vote_average }}/10</p>
-    <p><b>Popularity:</b> {{ movie.popularity }}</p>
-    <p><b>Genres:</b> {{ genreNames() }}</p>
+    <p>
+      <span class="font-semibold">Popularity:</span> 
+      {{ movie.popularity }}
+    </p>
+    <p>
+      <span class="font-semibold">Genres:</span> 
+      {{ genreNames() }}
+    </p>
   </div>
 </div>
